@@ -1,0 +1,112 @@
+/* Footer 스타일 */
+.site-footer {
+  /* padding-top: 50%; */
+  background-color: #333;
+  color: #fff;
+  padding: 100px 0 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-section {
+  flex: 1;
+  margin-bottom: 20px;
+  min-width: 250px;
+}
+
+.footer-heading {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.about p {
+  line-height: 1.6;
+}
+
+.contact-info p {
+  margin-bottom: 10px;
+}
+
+.contact-info i {
+  margin-right: 10px;
+  color: #f1c40f;
+}
+
+.links ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.links ul li {
+  margin-bottom: 10px;
+}
+
+.links ul li a {
+  color: #ddd;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.links ul li a:hover {
+  color: #f1c40f;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #f1c40f;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #555;
+  margin-top: 40px;
+}
+
+.footer-bottom p {
+  margin-bottom: 10px;
+  color: brown;
+  border-color: #555;
+  border-block-color: red;
+  /* color: black; */
+}
+
+.footer-bottom a {
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+  color: #f1c40f;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .footer-section {
+    margin-bottom: 30px;
+  }
+}

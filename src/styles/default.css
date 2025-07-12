@@ -1,0 +1,72 @@
+/* 모바일 스타일 start */
+@media (max-width: 480px) {
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}
+/* 모바일 스타일 end */
+
+/* 전체 페이지 기본 스타일 */
+body {
+  margin: 0;
+  padding-top: 70px; /* 헤더 높이만큼 위쪽 패딩 (헤더 고정 영역 고려) */
+  /* font-size: 16px; */
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+header {
+  position: fixed; /* 상단 헤더 고정 스타일 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px; /* 헤더 높이 */
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 -10px;
+  /* padding: 10px 20px;  좌우 패딩 조절  */
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+/* .cimg {
+  width: 130px;
+} */
+.logo {
+  margin-left: 30px;
+  color: #1b3e73;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* 상단 메뉴 스타일 */
+nav.top-nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+
+/* 이미지의 길이에 따라 스크롤 생김 */
+.image-section {
+  max-width: 100%; /*모바일 페이지를 위해 max-width*/
+  padding-top: 30%; /* 16:9 비율의 50% */ /* padding-top으로 이미지 조정할 수 있음 */
+  position: relative;
+  overflow: hidden;
+}
+
+.image-section img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* height: 100%; */
+  height: auto; /*모바일 페이지를 위해 사용*/
+  object-fit: cover;
+}
