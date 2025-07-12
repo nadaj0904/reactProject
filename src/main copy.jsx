@@ -6,10 +6,9 @@ import "./styles/index_kong.css";
 
 // import App3 from "./App3.jsx";
 import App4 from "./App4.jsx";
-import { BrowserRouter } from "react-router-dom";
 
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
+  <StrictMode>
     <App4 />
-  </BrowserRouter>
+  </StrictMode>
 );
