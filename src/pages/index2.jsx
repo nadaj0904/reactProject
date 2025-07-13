@@ -15,7 +15,8 @@ import Opinion from "./opinion2.jsx";
 const App = () => {
   return (
     <>
-      {/* <Routes>
+      {/* Error Coding!!
+      <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/board" element={<Board />} />
         <Route path="/history" element={<History />} />
