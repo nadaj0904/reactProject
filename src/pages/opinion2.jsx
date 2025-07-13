@@ -1,8 +1,5 @@
 import React from "react";
-import "./styel/index_kong.css";
-import "./style/board3.css";
-import "./style/opinion.css";
-
+import "../styles/opinion.css";
 const opinion2 = () => {
   return (
     <div>

@@ -1,5 +1,5 @@
 import React from "react";
-import "./style/index_kong.css";
+import "../styles/index_kong.css";
 
 const history = () => {
   return (

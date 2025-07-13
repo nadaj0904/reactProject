@@ -1,9 +1,7 @@
 import React from "react";
 // import "./page5.css";
 // import "./board3.css";
-
-import "./style/page5.css";
-import "./style/board3.css";
+import "../styles/board3.css";
 
 const board3 = () => {
   return (
