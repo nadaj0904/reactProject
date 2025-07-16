@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A*에넷 WORLD 로그인</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f8f9fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .login-container {
+        background: white;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .logo {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .logo h1 {
+        color: #2563eb;
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      .logo .a-star {
+        color: #ef4444;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+        position: relative;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 15px 20px 15px 45px;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        font-size: 16px;
+        outline: none;
+        transition: border-color 0.3s ease;
+      }
+
+      .form-group input:focus {
+        border-color: #2563eb;
+      }
+
+      .form-group input::placeholder {
+        color: #9ca3af;
+      }
+
+      .form-group .icon {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #9ca3af;
+        font-size: 18px;
+      }
+
+      .login-button {
+        width: 100%;
+        padding: 15px;
+        background: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-bottom: 20px;
+      }
+
+      .login-button:hover {
+        background: #1d4ed8;
+      }
+
+      .checkbox-group {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        color: #6b7280;
+        font-size: 14px;
+      }
+
+      .checkbox-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .checkbox-item input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        accent-color: #2563eb;
+      }
+
+      .checkbox-item label {
+        cursor: pointer;
+      }
+
+      /* 아이콘 스타일 */
+      .user-icon::before {
+        content: "👤";
+      }
+
+      .lock-icon::before {
+        content: "🔒";
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="logo">
+        <h1><span class="a-star">A*</span>에넷 WORLD</h1>
+      </div>
+
+      <form>
+        <div class="form-group">
+          <span class="icon user-icon"></span>
+          <input type="text" placeholder="ID" required />
+        </div>
+
+        <div class="form-group">
+          <span class="icon lock-icon"></span>
+          <input type="password" placeholder="PASSWORD" required />
+        </div>
+
+        <button type="submit" class="login-button">LOGIN</button>
+
+        <div class="checkbox-group">
+          <div class="checkbox-item">
+            <input type="checkbox" id="saveId" />
+            <label for="saveId">아이디저장</label>
+          </div>
+          <div class="checkbox-item">
+            <input type="checkbox" id="secureLogin" />
+            <label for="secureLogin">비밀번호찾기</label>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      // 폼 제출 이벤트 처리
+      document.querySelector("form").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const id = document.querySelector('input[type="text"]').value;
+        const password = document.querySelector('input[type="password"]').value;
+
+        if (!id || !password) {
+          alert("아이디와 비밀번호를 입력해주세요.");
+          return;
+        }
+
+        // 실제 로그인 처리 로직은 여기에 구현
+        alert("로그인 처리 중...");
+      });
+
+      // 아이디 저장 기능
+      document.getElementById("saveId").addEventListener("change", function () {
+        if (this.checked) {
+          console.log("아이디 저장이 활성화되었습니다.");
+        } else {
+          console.log("아이디 저장이 비활성화되었습니다.");
+        }
+      });
+
+      // 비밀번호 찾기 기능
+      document
+        .getElementById("secureLogin")
+        .addEventListener("change", function () {
+          if (this.checked) {
+            alert("비밀번호 찾기 페이지로 이동합니다.");
+            // 실제로는 비밀번호 찾기 페이지로 리다이렉트
+            this.checked = false;
+          }
+        });
+    </script>
+  </body>
+</html>
