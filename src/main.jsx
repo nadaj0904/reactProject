@@ -5,11 +5,11 @@ import "./styles/index_kong.css";
 // import App from './App.jsx'
 
 // import App3 from "./App3.jsx";
-import App4 from "./App4.jsx";
+import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    <App4 />
+    <App />
   </BrowserRouter>
 );

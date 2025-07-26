@@ -18,24 +18,27 @@ body {
   background: white;
   padding: 40px;
   border-radius: 12px;
+  /* border-style: dashed; */
+  border-style: solid;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
+  /* width: 100%; */
+  width: 500px;
+  max-width: 500px;
 }
 
-.logo {
+.logo1 {
   text-align: center;
   margin-bottom: 40px;
 }
 
-.logo h1 {
+.logo1 h1 {
   color: #2563eb;
   font-size: 24px;
   font-weight: bold;
   margin: 0;
 }
 
-.logo .a-star {
+.a-star {
   color: #ef4444;
 }
 
@@ -62,7 +65,7 @@ body {
   color: #9ca3af;
 }
 
-.form-group .icon {
+.icon {
   position: absolute;
   left: 15px;
   top: 50%;
@@ -113,7 +116,6 @@ body {
   cursor: pointer;
 }
 
-/* 아이콘 스타일 */
 .user-icon::before {
   content: "👤";
 }

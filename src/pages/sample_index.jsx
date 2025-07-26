@@ -2,6 +2,8 @@ import React from "react";
 import "../styles/sample_index.css";
 // import "../styles/index_kong.css";
 
+import { Link } from "react-router-dom";
+
 const App = () => {
   return (
     <>
@@ -16,16 +18,16 @@ const App = () => {
             <a href="#">LIST</a>
           </li>
           <li className="menu-item blue-dot">
-            <a href="#">로그인 페이지</a>
+            <Link to={"/login"}>로그인 페이지로(비밀번호변경/비밀번호재설정)</Link>
           </li>
           <li className="menu-item blue-dot">
-            <a href="#">회원가입</a>
+            <Link to={"/memberInsert"}>회원가입</Link>
           </li>
           <li className="menu-item blue-dot">
-            <a href="#">게시판</a>
+            <Link to={"/board"}>게시판</Link>
           </li>
           <li className="menu-item blue-dot">
-            <a href="#">테스트 01</a>
+            <Link to={"/notice"}>공지사항</Link>
           </li>
           <li className="menu-item blue-dot">
             <a href="#">테스트 01</a>
