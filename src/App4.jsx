@@ -1,7 +1,8 @@
 // src/App.jsx
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import Index from "./pages/index";
+// import Index from "./pages/index";
+import Index from "./pages/sample_index";
 import Board from "./pages/board3";
 import History from "./pages/history";
 import Opinion from "./pages/opinion2";

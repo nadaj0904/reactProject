@@ -1,0 +1,147 @@
+   /* 전체 페이지 스타일 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* header {
+  background: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+*/
+.app-wrapper1 {
+  max-width: 1200px;
+  margin: 0 auto; 
+  padding: 0 1rem; 
+  /* 좌우 여백 (선택)  */
+} 
+
+
+.body1 {
+    margin: 0;
+    /* margin-top: -400px; */
+    /* width: 200%; */
+    /* margin: auto; */
+    /* max-width: 1200px; */
+
+    /* position: sticky; */
+    /* top: 0; */
+    /* z-index: 100; */
+    /* position: sticky; */
+    /* padding: 0; */
+    /* font-family: Arial, sans-serif; */
+    /* background-color: #f5f5f5; */
+}
+
+/* 헤더 부분 - 파란색 배경 */
+.header1 {
+    background-color: #4682B4;
+    color: white;
+    padding: 20px;
+    /* position: relative; */
+    position: fixed; /*상단고정*/
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 1000;
+}
+
+/* 메뉴 리스트 컨테이너 */
+.menu-container1 {
+    background-color: white;
+    border-style: dashed;
+    padding: 0;
+    margin: 0;
+
+    /* position: fixed;  */
+    /* 상단고정 */
+    /* position: relative; */
+    /* absolute 가장 가까운 relative, absolute, fixed 조상 요소 기준으로 위치 결정*/
+    position: absolute;
+    /* position: sticky; */
+    top: 0px;
+    margin-top: 100px;
+    left: 0px;
+    right: 0px;
+    z-index: 1000;
+
+}
+
+/* 헤더 제목 */
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* 햄버거 메뉴 아이콘 (오른쪽 상단) */
+.menu-icon {
+    /* margin-left: 100%; */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+
+/* 메뉴 리스트 */
+.menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* 각 메뉴 항목 */
+.menu-item {
+    margin-left: 2%;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* 메뉴 링크 스타일 */
+.menu-item a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+/* 메뉴에 마우스 올렸을 때 */
+.menu-item a:hover {
+    background-color: #f0f0f0;
+}
+
+/* 첫 번째 메뉴 항목 (진한 글씨) */
+.menu-item:first-child a {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* 파란색 점이 있는 메뉴 항목들 */
+.menu-item.blue-dot a {
+    position: relative;
+    color: #4682B4;
+}
+
+/* 파란색 점 표시 */
+.menu-item.blue-dot a:before {
+    content: "•";
+    color: #4682B4;
+    font-weight: bold;
+    position: absolute;
+    left: 5px;
+}
+
+/* 파란색 점이 있는 항목은 왼쪽에 여백 추가 */
+.menu-item.blue-dot a {
+    padding-left: 25px;
+}
