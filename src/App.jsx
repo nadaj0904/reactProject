@@ -7,6 +7,8 @@ import Login from "./pages/login";
 import Board from "./pages/board";
 import Notice from "./pages/notice";
 import MemberInsert from "./pages/memberInsert";
+import Member from "./pages/member";
+import Member2 from "./pages/member2";
 
 const App = () => {
   return (
@@ -17,6 +19,8 @@ const App = () => {
         <Route path="/memberInsert" element={<MemberInsert/>} />
         <Route path="/board" element={<Board/>} />
         <Route path="/notice" element={<Notice />} />
+        <Route path="/member" element={<Member />} />
+        <Route path="/member2" element={<Member2 />} />
       </Routes>
     </>
   );

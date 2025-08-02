@@ -1,0 +1,306 @@
+/* 전체 컨테이너 스타일 */
+.App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+}
+
+/* 로그인 페이지 스타일 */
+.login-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-container h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.login-container form div {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.login-container label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #555;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.login-container input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.login-container button:hover {
+  background-color: #0056b3;
+}
+
+/* 회원 페이지 스타일 */
+.member-container {
+  width: 100%;
+  max-width: 900px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 2rem 0;
+}
+
+.member-header {
+  background-color: #4a90e2;
+  color: white;
+  padding: 1.5rem;
+  text-align: left;
+  border-bottom: 3px solid #357abd;
+}
+
+.member-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+/* 폼 스타일 */
+.member-form {
+  padding: 0;
+}
+
+.form-section {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.section-title {
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  border-bottom: 1px solid #dee2e6;
+  display: flex;
+  align-items: center;
+}
+
+.section-number {
+  background-color: #4a90e2;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  margin-right: 0.75rem;
+}
+
+.form-table {
+  width: 100%;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f0f0f0;
+  min-height: 50px;
+}
+
+.form-label {
+  background-color: #f8f9fa;
+  width: 150px;
+  padding: 1rem;
+  font-weight: bold;
+  color: #333;
+  border-right: 1px solid #dee2e6;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.form-input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  margin: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+}
+
+.form-input[readonly] {
+  background-color: #f8f9fa;
+  color: #666;
+}
+
+.form-select {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  margin: 0.5rem 0.5rem 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  background-color: white;
+}
+
+.email-input-group {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  padding: 0.5rem 1rem;
+  gap: 0.5rem;
+}
+
+.email-domain {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  background-color: white;
+}
+
+.separator {
+  margin: 0 0.5rem;
+  color: #666;
+}
+
+.address-search-btn {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin: 0.5rem 1rem;
+}
+
+.address-search-btn:hover {
+  background-color: #5a6268;
+}
+
+.radio-group, .service-options {
+  padding: 1rem;
+  flex: 1;
+}
+
+.radio-label, .service-label {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.radio-label input, .service-label input {
+  margin-right: 0.5rem;
+}
+
+/* 버튼 영역 */
+.button-area {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid #dee2e6;
+  background-color: #f8f9fa;
+}
+
+.submit-btn {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-right: 1rem;
+}
+
+.submit-btn:hover {
+  background-color: #357abd;
+}
+
+.cancel-btn {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.cancel-btn:hover {
+  background-color: #5a6268;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .member-container {
+    margin: 1rem;
+    width: calc(100% - 2rem);
+  }
+  
+  .form-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .form-label {
+    width: 100%;
+    text-align: left;
+    border-right: none;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .form-input, .form-select {
+    margin: 0.5rem;
+  }
+  
+  .email-input-group {
+    padding: 0.5rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .button-area {
+    padding: 1rem;
+  }
+  
+  .submit-btn, .cancel-btn {
+    display: block;
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+}

@@ -2,32 +2,13 @@ import React, { useState } from "react";
 // import "./LoginPage.css";
 import "../styles/login.css";
 import axios from "axios";
+import { Navigate, useNavigate } from "react-router-dom";
 
-// 3. 문자열을 파싱하는 함수
-function parseUserString(dataString) {
-  // 개행문자 제거
-  const cleanString = dataString.replace(/\n/g, "").trim();
-
-  // 방법 1: 정규식을 사용한 파싱
-  const parseWithRegex = (str) => {
-    const idMatch = str.match(/ID:([^,]+)/);
-    const passwdMatch = str.match(/PASSWD:([^,]+)/);
-    const nameMatch = str.match(/NAME:(.+)/);
-
-    return {
-      id: idMatch ? idMatch[1].trim() : null,
-      password: passwdMatch ? passwdMatch[1].trim() : null,
-      name: nameMatch ? nameMatch[1].trim() : null,
-    };
-  };
-
-  // 정규식 방법 사용 (더 안정적)
-  return parseWithRegex(cleanString);
-}
 const LoginPage = () => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const [saveId, setSaveId] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,7 +20,7 @@ const LoginPage = () => {
 
     axios
       .post(
-        "http://localhost:8081/test/users2",
+        "http://localhost:8080/test/users2",
         {
           id: "user1",
           password: "password123",
@@ -57,6 +38,17 @@ const LoginPage = () => {
         console.log("사용자 ID:", userData.id);
         console.log("이름:", userData.name);
 
+        alert("success.");
+
+        navigate('/member2',{
+          state:{
+            userId: userData.id,
+            userName: userData.name,
+            userData: userData
+          }
+
+        })
+
         // DOM 업데이트
         // document.getElementById(
         //   "welcome"
@@ -64,6 +56,7 @@ const LoginPage = () => {
       })
       .catch((error) => {
         console.error("에러:", error);
+        alert("로그인에 실패했습니다. 다시 시도해 주세요!");
       });
     // .then((response) =>
     //   console.log(
@@ -139,4 +132,25 @@ const LoginPage = () => {
   );
 };
 
+// 3. 문자열을 파싱하는 함수
+function parseUserString(dataString) {
+  // 개행문자 제거
+  const cleanString = dataString.replace(/\n/g, "").trim();
+
+  // 방법 1: 정규식을 사용한 파싱
+  const parseWithRegex = (str) => {
+    const idMatch = str.match(/ID:([^,]+)/);
+    const passwdMatch = str.match(/PASSWD:([^,]+)/);
+    const nameMatch = str.match(/NAME:(.+)/);
+
+    return {
+      id: idMatch ? idMatch[1].trim() : null,
+      password: passwdMatch ? passwdMatch[1].trim() : null,
+      name: nameMatch ? nameMatch[1].trim() : null,
+    };
+  };
+
+  // 정규식 방법 사용 (더 안정적)
+  return parseWithRegex(cleanString);
+}
 export default LoginPage;

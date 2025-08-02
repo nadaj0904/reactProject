@@ -1,0 +1,192 @@
+/* 전체 컨테이너 스타일 */
+.App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+}
+
+/* 로그인 페이지 스타일 */
+.login-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-container h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.login-container form div {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.login-container label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #555;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.login-container input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.login-container button:hover {
+  background-color: #0056b3;
+}
+
+/* 회원 페이지 스타일 */
+.member-container {
+  width: 100%;
+  max-width: 800px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.member-header {
+  background-color: #007bff;
+  color: white;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.member-header h1 {
+  margin: 0;
+}
+
+.logout-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #c82333;
+}
+
+.member-content {
+  padding: 2rem;
+}
+
+.welcome-section {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.welcome-section h2 {
+  color: #007bff;
+  margin-bottom: 0.5rem;
+}
+
+.user-info {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.user-info h3 {
+  color: #333;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 0.5rem;
+}
+
+.info-item {
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  border-left: 4px solid #007bff;
+}
+
+.info-item strong {
+  color: #333;
+  margin-right: 0.5rem;
+}
+
+.member-actions {
+  text-align: left;
+}
+
+.member-actions h3 {
+  color: #333;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 0.5rem;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  padding: 0.75rem 1.5rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.action-btn:hover {
+  background-color: #218838;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .member-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .action-btn {
+    width: 100%;
+  }
+}
