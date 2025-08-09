@@ -12,7 +12,7 @@ import Board from "./board3.jsx";
 import History from "./history.jsx";
 import Opinion from "./opinion2.jsx";
 
-const App = () => {
+const App1 = () => {
   return (
     <>
       {/* Error Coding!!
@@ -201,4 +201,6 @@ useEffect(() => {
   };
 }, []);
 
-export default App;
+export default App1;
+
+
