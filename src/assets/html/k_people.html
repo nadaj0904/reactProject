@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>걸어온길</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #845ec2;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #845ec2;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666;
+        }
+
+        .breadcrumb span {
+            display: flex;
+            align-items: center;
+        }
+
+        .breadcrumb .active {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 15px 25px;
+            background-color: #fbeaff;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #845ec2;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .tab:hover {
+            background-color: #f0d4ff;
+        }
+
+        .tab.active {
+            background-color: #845ec2;
+            color: white;
+        }
+
+        .timeline-indicator {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #00c9a7;
+            border-radius: 50%;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .timeline-year {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #845ec2;
+        }
+
+        .content {
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        .content-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .content-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .content-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .highlight-text {
+            background: linear-gradient(120deg, #845ec2 0%, #00c9a7 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .tabs {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .tab {
+                padding: 12px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">공미준을 소개합니다</h1>
+            <div class="breadcrumb">
+                <span>🏠 홈</span>
+                <span>></span>
+                <span>소개</span>
+                <span>></span>
+                <span>걸어온길</span>
+                <span>></span>
+                <span class="active">2017 - 2021</span>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab" onclick="showContent('2022-2024')">공미준1기(2022~2023)</button>
+            <button class="tab active" onclick="showContent('2017-2021')">2017 - 2021</button>
+            <button class="tab" onclick="showContent('2013-2016')">2013 - 2016</button>
+            <button class="tab" onclick="showContent('2012-2010')">2012 - 2010</button>
+            <button class="tab" onclick="showContent('2009-2006')">2009 - 2006</button>
+            <button class="tab" onclick="showContent('2005-2002')">2005 - 2002</button>
+        </div>
+
+        <div class="timeline-indicator">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year" id="current-year">2017 - 2021</div>
+        </div>
+
+        <!-- 2022-2024 Content -->
+        <div class="content" id="2022-2024">
+            <div class="content-grid">
+                <div class="content-item">
+                    <div class="highlight-text">
+                        2022-2024년 주요 성과와 발전사항
+                    </div>
+                    <div class="content-text">
+                        디지털 전환 시대에 맞춰 새로운 도약을 준비하며, 지속가능한 발전을 위한 기반을 마련했습니다. 혁신적인 프로젝트들과 파트너십을 통해 더 넓은 영향력을 확장해 나가고 있습니다.
+                    </div>
+                </div>
+                <div class="content-item">
+                    <img src="https://via.placeholder.com/500x300/845ec2/white?text=2022-2024+주요+활동" alt="2022-2024" class="content-image">
+                    <div class="content-text">
+                        • 디지털 플랫폼 구축 완료<br>
+                        • 국제 협력 프로그램 확대<br>
+                        • 지속가능발전목표 달성을 위한 로드맵 수립
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2017-2021 Content -->
+        <div class="content active" id="2017-2021">
+            <div class="content-grid">
+                <div class="content-item">
+                    <img src="https://via.placeholder.com/500x300/00c9a7/white?text=시민운동+활동+현장" alt="시민운동 현장" class="content-image">
+                    <div class="content-text">
+                        시민운동과 사회정의를 위한 다양한 활동을 전개하며, 투명하고 공정한 사회를 만들기 위해 노력했습니다. 시민들과 함께 목소리를 내며 변화를 이끌어냈습니다.
+                    </div>
+                </div>
+                <div class="content-item">
+                    <img src="https://via.placeholder.com/500x300/845ec2/white?text=추모+기념관+건립" alt="추모 기념관" class="content-image">
+                    <div class="content-text">
+                        역사적 의미가 있는 추모 기념관 건립 프로젝트에 참여하여, 과거를 기억하고 미래 세대에게 올바른 역사 의식을 전달하는 데 기여했습니다.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2013-2016 Content -->
+        <div class="content" id="2013-2016">
+            <div class="content-grid">
+                <div class="content-item">
+                    <div class="highlight-text">
+                        2013-2016년 사회적 변화의 시기
+                    </div>
+                    <div class="content-text">
+                        사회적 이슈에 대한 적극적인 대응과 시민 의식 개선을 위한 다양한 캠페인을 진행했습니다. 교육과 인식 개선을 통해 사회 변화를 추진했습니다.
+                    </div>
+                </div>
+                <div class="content-item">
+                    <img src="https://via.placeholder.com/500x300/00c9a7/white?text=2013-2016+주요+캠페인" alt="2013-2016" class="content-image">
+                    <div class="content-text">
+                        • 시민 교육 프로그램 확대<br>
+                        • 사회적 약자 지원 활동<br>
+                        • 환경 보호 캠페인 진행
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2012-2010 Content -->
+        <div class="content" id="2012-2010">
+            <div class="content-grid">
+                <div class="content-item">
+                    <div class="highlight-text">
+                        2010-2012년 기반 구축 시기
+                    </div>
+                    <div class="content-text">
+                        조직의 체계적인 기반을 구축하고, 장기적인 비전을 설정하여 지속 가능한 활동을 위한 토대를 마련했습니다.
+                    </div>
+                </div>
+                <div class="content-item">
+                    <img src="https://via.placeholder.com/500x300/845ec2/white?text=2010-2012+조직+발전" alt="2010-2012" class="content-image">
+                    <div class="content-text">
+                        • 조직 체계 정비<br>
+                        • 전문 인력 양성<br>
+                        • 네트워크 구축 및 확장
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2009-2006 Content -->
+        <div class="content" id="2009-2006">
+            <div class="content-grid">
+                <div class="content-item">
+                    <div class="highlight-text">
+                        2006-2009년 성장과 발전
+                    </div>
+                    <div class="content-text">
+                        초기 활동을 바탕으로 규모를 확장하고, 다양한 분야로 활동 영역을 넓혀가며 사회적 영향력을 확대했습니다.
+                    </div>
+                </div>
+                <div class="content-item">
+                    <img src="https://via.placeholder.com/500x300/00c9a7/white?text=2006-2009+활동+확장" alt="2006-2009" class="content-image">
+                    <div class="content-text">
+                        • 활동 영역 다각화<br>
+                        • 지역 사회와의 연계 강화<br>
+                        • 정책 제안 활동 시작
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2005-2002 Content -->
+        <div class="content" id="2005-2002">
+            <div class="content-grid">
+                <div class="content-item">
+                    <div class="highlight-text">
+                        2002-2005년 창립과 초기 활동
+                    </div>
+                    <div class="content-text">
+                        창립 이후 초기 활동을 통해 조직의 정체성을 확립하고, 핵심 가치와 미션을 바탕으로 첫 발걸음을 내디뎠습니다.
+                    </div>
+                </div>
+                <div class="content-item">
+                    <img src="https://via.placeholder.com/500x300/845ec2/white?text=2002-2005+창립+초기" alt="2002-2005" class="content-image">
+                    <div class="content-text">
+                        • 조직 창립 및 등록<br>
+                        • 핵심 가치 정립<br>
+                        • 초기 회원 모집 및 활동 시작
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showContent(yearRange) {
+            // 모든 탭에서 active 클래스 제거
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // 클릭된 탭에 active 클래스 추가
+            event.target.classList.add('active');
+            
+            // 모든 콘텐츠 숨기기
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // 선택된 연도의 콘텐츠 보이기
+            document.getElementById(yearRange).classList.add('active');
+            
+            // 현재 연도 표시 업데이트
+            document.getElementById('current-year').textContent = yearRange.replace('-', ' - ');
+            
+            // 브레드크럼의 활성 연도 업데이트
+            const activeYear = document.querySelector('.breadcrumb .active');
+            activeYear.textContent = yearRange.replace('-', ' - ');
+        }
+    </script>
+</body>
+</html>
