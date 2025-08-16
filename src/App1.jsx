@@ -3,7 +3,7 @@ import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 // import Index from "./pages/index";
 import Index from "./pages/index";
-import Kintro from "./pages/k_intro_org";
+import Kintro from "./pages/k_intro";
 // import Login from "./pages/login";
 // import Board from "./pages/board";
 // import Notice from "./pages/notice";
@@ -16,7 +16,7 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Index />} />
-        <Route path="/kintro" element={<Kintro />} />
+        {<Route path="/kintro" element={<Kintro />} />}
         {/* { <Route path="/kintro" element={<Kintro />} /> }
         <Route path="/login" element={<Login/>} />
         <Route path="/login" element={<Login/>} />

@@ -1,17 +1,17 @@
-   /* * {
+  /* * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
+        } */
 
-        body {
+        /* body {
             font-family: 'Noto Sans KR', sans-serif;
             line-height: 1.6;
             color: #333;
             background-color: #ffffff;
         } */
 
-        .container1 {
+        .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
@@ -26,18 +26,18 @@
             border-radius: 15px;
         } */
 
-        /* h1 {
+        h1 {
             font-size: 3rem;
             font-weight: bold;
             margin-bottom: 20px;
-        } */
+        }
 
-        .subtitle1 {
+        .subtitle {
             font-size: 1.3rem;
             opacity: 0.9;
         }
 
-        .section1 {
+        .section {
             background: white;
             margin-bottom: 30px;
             padding: 40px;
@@ -46,45 +46,45 @@
             border-left: 5px solid #845ec2;
         }
 
-        .section-title1 {
+        .section-title {
             font-size: 1.8rem;
             color: #845ec2;
             margin-bottom: 25px;
             font-weight: bold;
         }
 
-        .purpose-grid1 {
+        .purpose-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             margin-top: 20px;
         }
 
-        .purpose-item1 {
+        .purpose-item {
             background: #fbeaff;
             padding: 25px;
             border-radius: 10px;
             border-left: 4px solid #00c9a7;
         }
 
-        .purpose-item1 h3 {
+        .purpose-item h3 {
             color: #845ec2;
             margin-bottom: 15px;
             font-size: 1.2rem;
         }
 
-        .purpose-item1 p {
+        .purpose-item p {
             color: #666;
             line-height: 1.5;
         }
 
-        .process-steps1 {
+        .process-steps {
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
 
-        .step1 {
+        .step {
             display: flex;
             align-items: center;
             background: #fbeaff;
@@ -93,7 +93,7 @@
             position: relative;
         }
 
-        .step-number1 {
+        .step-number {
             background: #d5cabd;
             color: white;
             width: 50px;
@@ -108,18 +108,18 @@
             flex-shrink: 0;
         }
 
-        .step-content1 h3 {
+        .step-content h3 {
             color: #845ec2;
             margin-bottom: 10px;
         }
 
-        .characteristics1 {
+        .characteristics {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
         }
 
-        .characteristic-item1 {
+        .characteristic-item {
             text-align: center;
             padding: 30px 20px;
             background: #d5cabd;
@@ -138,26 +138,26 @@
             font-size: 1.3rem;
         }
 
-        .roles1 {
+        .roles {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
         }
 
-        .role-item1 {
+        .role-item {
             background: #fbeaff;
             padding: 25px;
             border-radius: 15px;
             border: 2px solid #845ec2;
         }
 
-        .role-item1 h3 {
+        .role-item h3 {
             color: #845ec2;
             margin-bottom: 15px;
             font-size: 1.2rem;
         }
 
-        .role-item1 p {
+        .role-item p {
             color: #666;
         }
 

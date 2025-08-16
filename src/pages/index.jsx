@@ -54,13 +54,15 @@ const App = () => {
     <>
       <header>
         <div className="header-container">
-          <a href="#home">
+          {/* <a href="#home"> */}
+          <Link to="/">
             <img
               src="https://cdn.builder.io/api/v1/image/assets/c2aa825bb765483a882a74291aecba2d/53b5cf9fce830460926805336d262b066d42c6f2?placeholderIfAbsent=true"
               alt="공항교회 로고"
               className="logo"
             />
-          </a>
+            </Link>
+          {/* </a> */}
           <div className="logo2">공항교회 미래 준비 위원회</div>
           <nav>
             <ul>
