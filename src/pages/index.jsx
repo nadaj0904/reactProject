@@ -64,12 +64,12 @@ const App = () => {
           <div className="logo2">공항교회 미래 준비 위원회</div>
           <nav>
             <ul>
-              <li><Link to="/index">공미준 소개</Link></li>
-              <li><a href="#activities">공미준 조직도</a></li>
+              <li><Link to="/kintro">공미준 소개</Link></li>
+              {/* <li><a href="#activities">공미준 조직도</a></li> */}
               <li><Link to="/opinion">건의사항</Link></li>
               <li><Link to="/board">회의록</Link></li>
               <li><Link to="/history">공미준 활동내역</Link></li>
-              <li><a href="#contact">미래제안서</a></li>
+              {/* <li><a href="#contact">미래제안서</a></li> */}
             </ul>
           </nav>
         </div>
