@@ -69,8 +69,7 @@ const App = () => {
              <ul>
                 <li><Link to="/kintro">공미준 소개</Link></li>
                 <li><Link to="/kpeople">공미준 위원</Link></li>
-                <li><Link to="/board">건의사항</Link></li>
-                {/* <li><a href="#contact">미래제안서</a></li> */}
+                <li><Link to="/kopinion">건의사항</Link></li>
               </ul>
           </nav>
         </div>

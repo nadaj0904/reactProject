@@ -5,6 +5,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import Index from "./pages/index";
 import Kintro from "./pages/k_intro";
 import Kpeople from "./pages/k_people";
+import Kopinion from "./pages/k_opinion";
 // import Login from "./pages/login";
 // import Board from "./pages/board";
 // import Notice from "./pages/notice";
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/" element={<Index />} />
         {<Route path="/kintro" element={<Kintro />} />}
         {<Route path="/kpeople" element={<Kpeople />} />}
+        {<Route path="/kopinion" element={<Kopinion />} />}
         {/* { <Route path="/kintro" element={<Kintro />} /> }
         <Route path="/login" element={<Login/>} />
         <Route path="/login" element={<Login/>} />

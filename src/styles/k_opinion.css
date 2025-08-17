@@ -1,0 +1,94 @@
+/* body {
+  font-family: "맑은 고딕", sans-serif;
+  background-color: #f5f7fa;
+  margin: 0;
+  padding: 0;
+} */
+
+/* header {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #845ec2;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+} */
+
+/* main {
+  max-width: 800px;
+  margin: 30px auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+} */
+
+section.intro1 {
+  /* margin-top: auto; */
+  margin-top: -50px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  font-size: 20px;
+}
+
+.guidelines1 {
+  background-color: #d5cabd;
+  border: 1px solid #cbd5e1;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  margin-left: 0px;
+}
+
+.guidelines1 h3 {
+  margin-top: 0;
+  margin-left: 10px;
+}
+
+.guidelines1 ol {
+  margin-top: 0;
+  margin-left: 20px;
+}
+
+form {
+  margin-top: -20px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+input,
+textarea,
+select,
+button {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+button {
+  background-color: #845ec2;
+  color: white;
+  border: none;
+  margin-top: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #6b4bb8;
+}

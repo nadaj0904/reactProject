@@ -1,52 +1,52 @@
-import React, { useEffect } from "react";
-import "../styles/index_kong.css";
+import React, { useEffect } from 'react';
+import '../styles/index_kong.css';
 
-import kong_01_360 from "../assets/images/kong_01_360.png";
+import kong_01_360 from '../assets/images/kong_01_360.png';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const App = () => {
   useEffect(() => {
     // 부드러운 스크롤 효과
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener("click", function (e) {
+      anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute("href"));
+        const target = document.querySelector(this.getAttribute('href'));
         if (target) {
           target.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
+            behavior: 'smooth',
+            block: 'start',
           });
         }
       });
     });
 
     // 카드 클릭 효과
-    document.querySelectorAll(".activity-card").forEach((card) => {
-      card.addEventListener("click", function () {
-        this.style.transform = "scale(0.95)";
+    document.querySelectorAll('.activity-card').forEach((card) => {
+      card.addEventListener('click', function () {
+        this.style.transform = 'scale(0.95)';
         setTimeout(() => {
-          this.style.transform = "";
+          this.style.transform = '';
         }, 150);
       });
     });
 
     // 스크롤 시 헤더 효과
     const handleScroll = () => {
-      const header = document.querySelector("header");
+      const header = document.querySelector('header');
       if (window.scrollY > 100) {
-        header.style.backgroundColor = "rgba(255, 255, 255, 0.95)";
-        header.style.backdropFilter = "blur(10px)";
+        header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+        header.style.backdropFilter = 'blur(10px)';
       } else {
-        header.style.backgroundColor = "white";
-        header.style.backdropFilter = "none";
+        header.style.backgroundColor = 'white';
+        header.style.backdropFilter = 'none';
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -61,19 +61,23 @@ const App = () => {
               alt="공항교회 로고"
               className="logo"
             />
-            </Link>
+          </Link>
           {/* </a> */}
           <div className="logo2">공항교회 미래 준비 위원회</div>
           <nav>
-          <ul>
-           <ul>
-                          <li><Link to="/kintro">공미준 소개</Link></li>
-                          <li><Link to="/kpeople">공미준 위원</Link></li>
-                          <li><Link to="/board">건의사항</Link></li>
-                          {/* <li><a href="#contact">미래제안서</a></li> */}
-                        </ul>
-                        
-          </ul>
+            <ul>
+              <ul>
+                <li>
+                  <Link to="/kintro">공미준 소개</Link>
+                </li>
+                <li>
+                  <Link to="/kpeople">공미준 위원</Link>
+                </li>
+                <li>
+                  <Link to="/kopinion">건의사항</Link>
+                </li>
+              </ul>
+            </ul>
           </nav>
         </div>
       </header>
@@ -88,7 +92,9 @@ const App = () => {
       <main>
         <section id="activities">
           <h2 className="section-title">공미준 History(활동내역)</h2>
-          <p style={{textAlign: "center", marginBottom: "2rem", color: "#666"}}>
+          <p
+            style={{ textAlign: 'center', marginBottom: '2rem', color: '#666' }}
+          >
             from 2023-02-04
           </p>
 
@@ -140,15 +146,18 @@ const App = () => {
           <h2 className="contact-title">공항교회 오시는 길</h2>
           <div className="contact-details">
             <div className="contact-item">
-              <strong>주소</strong><br />
+              <strong>주소</strong>
+              <br />
               (07616) 서울시 강서구 초원로 80 공항교회
             </div>
             <div className="contact-item">
-              <strong>전화</strong><br />
+              <strong>전화</strong>
+              <br />
               TEL. 02)2665-9700~3
             </div>
             <div className="contact-item">
-              <strong>팩스</strong><br />
+              <strong>팩스</strong>
+              <br />
               FAX. 02)2665-2698
             </div>
           </div>
@@ -161,7 +170,7 @@ const App = () => {
             (07616) 서울시 강서구 초원로 80 공항교회 TEL. 02)2665-9700~3 FAX.
             02)2665-2698
           </p>
-          <p style={{marginTop: "1rem", opacity: 0.8}}>
+          <p style={{ marginTop: '1rem', opacity: 0.8 }}>
             © 2025 공항교회 미래준비 위원회. All rights reserved.
           </p>
         </div>

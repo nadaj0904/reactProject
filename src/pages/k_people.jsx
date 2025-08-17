@@ -8,13 +8,13 @@ import { Link } from "react-router-dom";
 
 const App = () => {
   // 현재 활성화된 탭을 관리하는 state
-  const [activeTab, setActiveTab] = useState('kong2');
-  
+  const [activeTab, setActiveTab] = useState("kong2");
+
   // 탭 데이터
   const tabData = {
-    'kong1': {
-      title: '공미준1기(2022~2023)',
-      yearDisplay: '2022 - 2023',
+    kong1: {
+      title: "공미준1기(2022~2023)",
+      yearDisplay: "2022 - 2023",
       content: (
         <div className="content-grid">
           <div className="content-item">
@@ -22,40 +22,59 @@ const App = () => {
               2022-2023년 주요 성과와 발전사항
             </div>
             <div className="content-text">
-              디지털 전환 시대에 맞춰 새로운 도약을 준비하며, 지속가능한 발전을 위한 기반을 마련했습니다. 혁신적인 프로젝트들과 파트너십을 통해 더 넓은 영향력을 확장해 나가고 있습니다.
+              디지털 전환 시대에 맞춰 새로운 도약을 준비하며, 지속가능한 발전을
+              위한 기반을 마련했습니다. 혁신적인 프로젝트들과 파트너십을 통해 더
+              넓은 영향력을 확장해 나가고 있습니다.
             </div>
           </div>
           <div className="content-item">
-            <img src="https://via.placeholder.com/500x300/845ec2/white?text=2022-2023+주요+활동" alt="2022-2023" className="content-image" />
+            <img
+              src="https://via.placeholder.com/500x300/845ec2/white?text=2022-2023+주요+활동"
+              alt="2022-2023"
+              className="content-image"
+            />
             <div className="content-text">
-              • 디지털 플랫폼 구축 완료<br />
-              • 국제 협력 프로그램 확대<br />
-              • 지속가능발전목표 달성을 위한 로드맵 수립
+              • 디지털 플랫폼 구축 완료
+              <br />
+              • 국제 협력 프로그램 확대
+              <br />• 지속가능발전목표 달성을 위한 로드맵 수립
             </div>
           </div>
         </div>
-      )
+      ),
     },
-    'kong2': {
-      title: '공미준2기(2022~2023)',
-      yearDisplay: '2017 - 2021',
+    kong2: {
+      title: "공미준2기(2022~2023)",
+      yearDisplay: "2017 - 2021",
       content: (
         <div className="content-grid">
           <div className="content-item">
-            <img src="https://via.placeholder.com/500x300/00c9a7/white?text=시민운동+활동+현장" alt="시민운동 현장" className="content-image" />
+            <img
+              src="https://via.placeholder.com/500x300/00c9a7/white?text=시민운동+활동+현장"
+              alt="시민운동 현장"
+              className="content-image"
+            />
             <div className="content-text">
-              시민운동과 사회정의를 위한 다양한 활동을 전개하며, 투명하고 공정한 사회를 만들기 위해 노력했습니다. 시민들과 함께 목소리를 내며 변화를 이끌어냈습니다.
+              시민운동과 사회정의를 위한 다양한 활동을 전개하며, 투명하고 공정한
+              사회를 만들기 위해 노력했습니다. 시민들과 함께 목소리를 내며
+              변화를 이끌어냈습니다.
             </div>
           </div>
           <div className="content-item">
-            <img src="https://via.placeholder.com/500x300/845ec2/white?text=추모+기념관+건립" alt="추모 기념관" className="content-image" />
+            <img
+              src="https://via.placeholder.com/500x300/845ec2/white?text=추모+기념관+건립"
+              alt="추모 기념관"
+              className="content-image"
+            />
             <div className="content-text">
-              역사적 의미가 있는 추모 기념관 건립 프로젝트에 참여하여, 과거를 기억하고 미래 세대에게 올바른 역사 의식을 전달하는 데 기여했습니다.
+              역사적 의미가 있는 추모 기념관 건립 프로젝트에 참여하여, 과거를
+              기억하고 미래 세대에게 올바른 역사 의식을 전달하는 데
+              기여했습니다.
             </div>
           </div>
         </div>
-      )
-    }
+      ),
+    },
   };
 
   // 탭 클릭 핸들러
@@ -121,9 +140,15 @@ const App = () => {
           <div className="logo2">공항교회 미래 준비 위원회</div>
           <nav>
             <ul>
-              <li><Link to="/kintro">공미준 소개</Link></li>
-              <li><Link to="/kpeople">공미준 위원</Link></li>
-              <li><Link to="/board">건의사항</Link></li>
+              <li>
+                <Link to="/kintro">공미준 소개</Link>
+              </li>
+              <li>
+                <Link to="/kpeople">공미준 위원</Link>
+              </li>
+              <li>
+                <Link to="/kopinion">건의사항</Link>
+              </li>
             </ul>
           </nav>
         </div>
@@ -148,7 +173,7 @@ const App = () => {
             {Object.entries(tabData).map(([tabId, data]) => (
               <button
                 key={tabId}
-                className={`tab ${activeTab === tabId ? 'active' : ''}`}
+                className={`tab ${activeTab === tabId ? "active" : ""}`}
                 onClick={() => handleTabClick(tabId)}
               >
                 {data.title}
@@ -164,9 +189,7 @@ const App = () => {
           </div>
 
           {/* 활성 탭의 콘텐츠만 표시 */}
-          <div className="content active">
-            {tabData[activeTab]?.content}
-          </div>
+          <div className="content active">{tabData[activeTab]?.content}</div>
         </div>
       </main>
 
@@ -176,7 +199,7 @@ const App = () => {
             (07616) 서울시 강서구 초원로 80 공항교회 TEL. 02)2665-9700~3 FAX.
             02)2665-2698
           </p>
-          <p style={{marginTop: "1rem", opacity: 0.8}}>
+          <p style={{ marginTop: "1rem", opacity: 0.8 }}>
             © 2025 공항교회 미래준비 위원회. All rights reserved.
           </p>
         </div>
