@@ -72,6 +72,7 @@ const App = () => {
                           <li><Link to="/board">건의사항</Link></li>
                           {/* <li><a href="#contact">미래제안서</a></li> */}
                         </ul>
+                        
           </ul>
           </nav>
         </div>

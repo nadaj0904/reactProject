@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    <title>공항교회 미래준비 위원회</title>
+    <!-- <link rel="stylesheet" href="/src//styles/index_kong.css" /> -->
+ <style>
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    position: relative;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+    line-height: 1.6;
+    color: #333;
+  
+  }
+
+  /* 헤더 */
+  header {
+    background: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    width: 149px;
+    height: auto;
+  }
+
+  .logo2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4a90e2;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #666;
+    font-weight: 500;
+  }
+
+  nav a:hover {
+    color: #4a90e2;
+  }
+
+  /* 히어로 섹션 */
+  .hero2 {
+    background: url("https://cdn.builder.io/api/v1/image/assets/c2aa825bb765483a882a74291aecba2d/e7f1e747263080f837a0ee97c1486dfed74fe074?placeholderIfAbsent=true");
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  /* 메인 콘텐츠 */
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 20px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: #333;
+  }
+
+  .section-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(45deg, #4a90e2, #9b59b6);
+    margin: 1rem auto;
+  }
+
+  .activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .activity-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .activity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-image1, .card-image2, .card-image3, .card-image4, .card-image5 {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+  }
+
+  .card-image1::before { content: "🙏"; }
+  .card-image2::before { content: "📚"; }
+  .card-image3::before { content: "📋"; }
+  .card-image4::before { content: "📝"; }
+  .card-image5::before { content: "📺"; }
+
+  .card-content {
+    padding: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    color: #4a90e2;
+  }
+
+  .card-date {
+    color: #666;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .contact-info {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    margin-top: 3rem;
+    text-align: center;
+  }
+
+  .contact-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #333;
+    font-weight: bold;
+  }
+
+  .contact-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .contact-item {
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  /* 푸터 */
+  footer {
+    background: #2c3e50;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    position: sticky;
+    bottom: 0;
+    z-index: 100;
+    margin-top: auto;
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* 반응형 */
+  @media (max-width: 768px) {
+    .header-container {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    nav ul {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .hero-content h1 {
+      font-size: 2rem;
+    }
+
+    main {
+      padding: 2rem 15px;
+    }
+
+    .activities-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-details {
+      grid-template-columns: 1fr;
+    }
+  }
+  </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <a href="index_kong.html">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/c2aa825bb765483a882a74291aecba2d/53b5cf9fce830460926805336d262b066d42c6f2?placeholderIfAbsent=true"
+            alt="공항교회 로고"
+            class="logo"
+          />
+        </a>
+        <div class="logo2">공항교회 미래 준비 위원회</div>
+        <nav>
+          <ul>
+            <li><a href="index_kong.html">공미준 소개</a></li>
+            <li><a href="org3.html">공미준 조직도</a></li>
+            <!-- <li><a href="#plans">공미준 위원들</a></li> -->
+            <li><a href="opinion2.html">건의사항</a></li>
+            <!-- <li><a href="#history">회의록</a></li> -->
+            <li><a href="board3.html">회의록</a></li>
+            <li><a href="history.html">공미준 활동내역</a></li>
+            <li><a href="#contact">미래제안서</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero2" id="home">
+      <div class="hero-content">
+        <h1>공항교회의 미래를 준비하는 공동체</h1>
+        <p>하나님의 사랑으로 함께 걸어가는 공항교회 미래준비 위원회</p>
+      </div>
+    </section>
+
+    <!-- Hero Section -->
+    <!-- <section class="hero-section">
+      <img
+        src="https://cdn.builder.io/api/v1/image/assets/c2aa825bb765483a882a74291aecba2d/e7f1e747263080f837a0ee97c1486dfed74fe074?placeholderIfAbsent=true"
+        alt="교회 배경 이미지"
+        class="hero-bg"
+      />
+      <div class="hero-content">
+        <h2 class="hero-text">
+          공미준은 공항교회의 미래와 다음세대를 위해 기도하고<br />
+          헌신하고 토론하며 교회정책을 수립합니다
+        </h2>
+      </div>
+    </section> -->
+
+    <main>
+      <section id="activities">
+        <h2 class="section-title">공미준 History(활동내역)</h2>
+        <p style="text-align: center; margin-bottom: 2rem; color: #666">
+          from 2023-02-04
+        </p>
+
+        <div class="activities-grid">
+          <article class="activity-card">
+            <div class="card-image1"></div>
+            <div class="card-content">
+              <h3 class="card-title">사역지원</h3>
+              <p class="card-date">Ministry Focus</p>
+            </div>
+          </article>
+
+          <article class="activity-card">
+            <div class="card-image2"></div>
+            <div class="card-content">
+              <h3 class="card-title">1기 책출간</h3>
+              <p class="card-date">First Publication</p>
+            </div>
+          </article>
+
+          <article class="activity-card">
+            <div class="card-image3"></div>
+            <div class="card-content">
+              <h3 class="card-title">미래제안서</h3>
+              <p class="card-date">Future Proposal</p>
+            </div>
+          </article>
+
+          <article class="activity-card">
+            <div class="card-image4"></div>
+            <div class="card-content">
+              <h3 class="card-title">회의록</h3>
+              <p class="card-date">Meeting Records</p>
+            </div>
+          </article>
+
+          <article class="activity-card">
+            <div class="card-image5"></div>
+            <div class="card-content">
+              <h3 class="card-title">미디어 선교</h3>
+              <p class="card-date">Media Ministry</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="contact-info">
+        <h2 class="contact-title">공항교회 오시는 길</h2>
+        <div class="contact-details">
+          <div class="contact-item">
+            <strong>주소</strong><br />
+            (07616) 서울시 강서구 초원로 80 공항교회
+          </div>
+          <div class="contact-item">
+            <strong>전화</strong><br />
+            TEL. 02)2665-9700~3
+          </div>
+          <div class="contact-item">
+            <strong>팩스</strong><br />
+            FAX. 02)2665-2698
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <p>
+          (07616) 서울시 강서구 초원로 80 공창교회 TEL. 02)2665-9700~3 FAX.
+          02)2665-2698
+        </p>
+        <p style="margin-top: 1rem; opacity: 0.8">
+          © 2025 공항교회 미래준비 위원회. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // 부드러운 스크롤 효과
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // 카드 클릭 효과
+      document.querySelectorAll(".activity-card").forEach((card) => {
+        card.addEventListener("click", function () {
+          this.style.transform = "scale(0.95)";
+          setTimeout(() => {
+            this.style.transform = "";
+          }, 150);
+        });
+      });
+
+      // 스크롤 시 헤더 효과
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector("header");
+        if (window.scrollY > 100) {
+          header.style.backgroundColor = "rgba(255, 255, 255, 0.95)";
+          header.style.backdropFilter = "blur(10px)";
+        } else {
+          header.style.backgroundColor = "white";
+          header.style.backdropFilter = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
