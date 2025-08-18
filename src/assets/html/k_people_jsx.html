@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>걸어온길</title>
+    <style>
+       * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* body {
+        font-family: 'Noto Sans KR', Arial, sans-serif;
+        background: linear-gradient(135deg, #ffe9ff 0%, #f3eada 100%);
+        min-height: 100vh;
+        padding: 40px 20px;
+      } */
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .title {
+        text-align: center;
+        font-size: 2.5rem;
+        color: #2c3e50;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .title-underline {
+        width: 80px;
+        height: 4px;
+        background: #f39c12;
+        margin: 0 auto 50px;
+        border-radius: 2px;
+      }
+
+      .members-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .member-card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px 20px;
+        text-align: center;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .member-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+
+      .star-icon {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 30px;
+        height: 30px;
+        background: #f39c12;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 14px;
+      }
+
+      .member-photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 auto 20px;
+        border: 4px solid #f39c12;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        background: #f8f9fa;
+        display: block;
+      }
+
+      .member-name {
+        font-size: 1.3rem;
+        color: #2c3e50;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+
+      .member-role {
+        font-size: 1.1rem;
+        color: #7f8c8d;
+        margin-bottom: 15px;
+        font-weight: 500;
+      }
+
+      .member-description {
+        color: #555;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+        .tabs {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 15px 25px;
+            background-color: #fbeaff;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #845ec2;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .tab:hover {
+            background-color: #f0d4ff;
+        }
+
+        .tab.active {
+            background-color: #845ec2;
+            color: white;
+        }
+
+        
+        .content {
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+
+      @media (max-width: 768px) {
+        body {
+          padding: 20px 15px;
+        }
+
+        .title {
+          font-size: 2rem;
+        }
+
+        .members-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .member-card {
+          padding: 25px 15px;
+        }
+
+        .member-photo {
+          width: 100px;
+          height: 100px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .title {
+          font-size: 1.7rem;
+        }
+
+        .member-photo {
+          width: 80px;
+          height: 80px;
+        }
+
+        .member-name {
+          font-size: 1.1rem;
+        }
+
+        .member-role {
+          font-size: 1rem;
+        }
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">공미준을 소개합니다</h1>
+            <!-- <div class="breadcrumb">
+                <span>🏠 홈</span>
+                <span>></span>
+                <span>소개</span>
+                <span>></span>
+                <span>걸어온길</span>
+                <span>></span>
+                <span class="active">2017 - 2021</span>
+            </div> -->
+        </div>
+
+        <div class="tabs">
+            <button class="tab" onclick="showContent('kong1')">공미준1기(2022~2023)</button>
+            <button class="tab active" onclick="showContent('kong2')">공미준2기(2022~2023)</button>
+            <!-- <button class="tab" onclick="showContent('2013-2016')">2013 - 2016</button>
+            <button class="tab" onclick="showContent('2012-2010')">2012 - 2010</button>
+            <button class="tab" onclick="showContent('2009-2006')">2009 - 2006</button>
+            <button class="tab" onclick="showContent('2005-2002')">2005 - 2002</button> -->
+        </div>
+
+        <!-- <div class="timeline-indicator">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year" id="current-year">2017 - 2021</div>
+        </div> -->
+
+        <!-- 2022-2024 Content -->
+        <div class="content" id="kong1">
+      <div class="container">
+      <div class="members-grid">
+        <div class="member-card">
+          <div class="star-icon">★</div>
+          <img
+            src=""
+            alt="지현은"
+            class="member-photo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div
+            class="photo-placeholder"
+            style="
+              display: none;
+              width: 150px;
+              height: 150px;
+              border-radius: 50%;
+              background: #f8f9fa;
+              border: 4px solid #f39c12;
+              margin: 0 auto 20px;
+              align-items: center;
+              justify-content: center;
+              color: #999;
+              font-size: 0.9rem;
+            "
+          >
+            사진
+          </div>
+          <div class="member-name">위원장</div>
+          <div class="member-role">최종모</div>
+          <div class="member-description">담임목사</div>
+        </div>
+
+        <div class="member-card">
+          <div class="star-icon">★</div>
+          <img
+            src=""
+            alt="손봉호"
+            class="member-photo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div
+            class="photo-placeholder"
+            style="
+              display: none;
+              width: 150px;
+              height: 150px;
+              border-radius: 50%;
+              background: #f8f9fa;
+              border: 4px solid #f39c12;
+              margin: 0 auto 20px;
+              align-items: center;
+              justify-content: center;
+              color: #999;
+              font-size: 0.9rem;
+            "
+          >
+            사진
+          </div>
+          <div class="member-name">이남창</div>
+          <div class="member-role">총무</div>
+          <div class="member-description">방송실,4남선교회 회장</div>
+        </div>
+
+        <div class="member-card">
+          <div class="star-icon">★</div>
+          <img
+            src=""
+            alt="정병오"
+            class="member-photo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div
+            class="photo-placeholder"
+            style="
+              display: none;
+              width: 150px;
+              height: 150px;
+              border-radius: 50%;
+              background: #f8f9fa;
+              border: 4px solid #f39c12;
+              margin: 0 auto 20px;
+              align-items: center;
+              justify-content: center;
+              color: #999;
+              font-size: 0.9rem;
+            "
+          >
+            사진
+          </div>
+          <div class="member-name">정병오</div>
+          <div class="member-role">공동대표</div>
+          <div class="member-description">
+            서울시 교육청<br />오디세이학교 교사
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="star-icon">★</div>
+          <img
+            src=""
+            alt="신동식"
+            class="member-photo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div
+            class="photo-placeholder"
+            style="
+              display: none;
+              width: 150px;
+              height: 150px;
+              border-radius: 50%;
+              background: #f8f9fa;
+              border: 4px solid #f39c12;
+              margin: 0 auto 20px;
+              align-items: center;
+              justify-content: center;
+              color: #999;
+              font-size: 0.9rem;
+            "
+          >
+            사진
+          </div>
+          <div class="member-name">신동식</div>
+          <div class="member-role">공동대표</div>
+          <div class="member-description">빛과소금교회 담임목사</div>
+        </div>
+
+        <div class="member-card">
+          <div class="star-icon">★</div>
+          <img
+            src=""
+            alt="이상민"
+            class="member-photo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div
+            class="photo-placeholder"
+            style="
+              display: none;
+              width: 150px;
+              height: 150px;
+              border-radius: 50%;
+              background: #f8f9fa;
+              border: 4px solid #f39c12;
+              margin: 0 auto 20px;
+              align-items: center;
+              justify-content: center;
+              color: #999;
+              font-size: 0.9rem;
+            "
+          >
+            사진
+          </div>
+          <div class="member-name">이상민</div>
+          <div class="member-role">공동대표</div>
+          <div class="member-description">법무법인 예실 대표변호사</div>
+        </div>
+
+        <div class="member-card">
+          <div class="star-icon">★</div>
+          <img
+            src=""
+            alt="이상민"
+            class="member-photo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div
+            class="photo-placeholder"
+            style="
+              display: none;
+              width: 150px;
+              height: 150px;
+              border-radius: 50%;
+              background: #f8f9fa;
+              border: 4px solid #f39c12;
+              margin: 0 auto 20px;
+              align-items: center;
+              justify-content: center;
+              color: #999;
+              font-size: 0.9rem;
+            "
+          >
+            사진
+          </div>
+          <div class="member-name">이상민</div>
+          <div class="member-role">공동대표</div>
+          <div class="member-description">법무법인 예실 대표변호사</div>
+        </div>
+      </div>
+    </div>
+           
+        </div>
+
+        <!-- 2017-2021 Content -->
+        <div class="content active" id="kong2">
+           <div class="container">
+      <div class="members-grid">
+        <div class="member-card">
+          <div class="star-icon">★</div>
+          <img
+            src=""
+            alt="지현은"
+            class="member-photo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div
+            class="photo-placeholder"
+            style="
+              display: none;
+              width: 150px;
+              height: 150px;
+              border-radius: 50%;
+              background: #f8f9fa;
+              border: 4px solid #845ec2;
+              margin: 0 auto 20px;
+              align-items: center;
+              justify-content: center;
+              color: #999;
+              font-size: 0.9rem;
+            "
+          >
+            사진
+          </div>
+          <div class="member-name">위원장</div>
+          <div class="member-role">홍길동</div>
+          <div class="member-description">담임목사</div>
+        </div>
+
+        <div class="member-card">
+          <div class="star-icon">★</div>
+          <img
+            src=""
+            alt="손봉호"
+            class="member-photo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div
+            class="photo-placeholder"
+            style="
+              display: none;
+              width: 150px;
+              height: 150px;
+              border-radius: 50%;
+              background: #f8f9fa;
+              border: 4px solid #845ec2;
+              margin: 0 auto 20px;
+              align-items: center;
+              justify-content: center;
+              color: #999;
+              font-size: 0.9rem;
+            "
+          >
+            사진
+          </div>
+          <div class="member-name">총무</div>
+          <div class="member-role">홍길동</div>
+          <div class="member-description">방송실,4남선교회 회장</div>
+        </div>
+
+        <div class="member-card">
+          <div class="star-icon">★</div>
+          <img
+            src=""
+            alt="정병오"
+            class="member-photo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div
+            class="photo-placeholder"
+            style="
+              display: none;
+              width: 150px;
+              height: 150px;
+              border-radius: 50%;
+              background: #f8f9fa;
+              border: 4px solid #845ec2;
+              margin: 0 auto 20px;
+              align-items: center;
+              justify-content: center;
+              color: #999;
+              font-size: 0.9rem;
+            "
+          >
+            사진
+          </div>
+          <div class="member-name">위원</div>
+          <div class="member-role">홍길동</div>
+          <div class="member-description">
+            서울시 교육청<br />오디세이학교 교사
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="star-icon">★</div>
+          <img
+            src=""
+            alt="신동식"
+            class="member-photo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div
+            class="photo-placeholder"
+            style="
+              display: none;
+              width: 150px;
+              height: 150px;
+              border-radius: 50%;
+              background: #f8f9fa;
+              border: 4px solid #845ec2;
+              margin: 0 auto 20px;
+              align-items: center;
+              justify-content: center;
+              color: #999;
+              font-size: 0.9rem;
+            "
+          >
+            사진
+          </div>
+          <div class="member-name">신동식</div>
+          <div class="member-role">공동대표</div>
+          <div class="member-description">빛과소금교회 담임목사</div>
+        </div>
+
+        <div class="member-card">
+          <div class="star-icon">★</div>
+          <img
+            src=""
+            alt="이상민"
+            class="member-photo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div
+            class="photo-placeholder"
+            style="
+              display: none;
+              width: 150px;
+              height: 150px;
+              border-radius: 50%;
+              background: #f8f9fa;
+              border: 4px solid #845ec2;
+              margin: 0 auto 20px;
+              align-items: center;
+              justify-content: center;
+              color: #999;
+              font-size: 0.9rem;
+            "
+          >
+            사진
+          </div>
+          <div class="member-name">이상민</div>
+          <div class="member-role">공동대표</div>
+          <div class="member-description">법무법인 예실 대표변호사</div>
+        </div>
+
+        <div class="member-card">
+          <div class="star-icon">★</div>
+          <img
+            src=""
+            alt="이상민"
+            class="member-photo"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div
+            class="photo-placeholder"
+            style="
+              display: none;
+              width: 150px;
+              height: 150px;
+              border-radius: 50%;
+              background: #f8f9fa;
+              border: 4px solid #845ec2;
+              margin: 0 auto 20px;
+              align-items: center;
+              justify-content: center;
+              color: #999;
+              font-size: 0.9rem;
+            "
+          >
+            사진
+          </div>
+          <div class="member-name">이상민</div>
+          <div class="member-role">공동대표</div>
+          <div class="member-description">법무법인 예실 대표변호사</div>
+        </div>
+      </div>
+    </div>
+        </div>
+
+      
+    <script>
+        function showContent(yearRange) {
+            // 모든 탭에서 active 클래스 제거
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // 클릭된 탭에 active 클래스 추가
+            event.target.classList.add('active');
+            
+            // 모든 콘텐츠 숨기기
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // 선택된 연도의 콘텐츠 보이기
+            document.getElementById(yearRange).classList.add('active');
+            
+            // 현재 연도 표시 업데이트
+            document.getElementById('current-year').textContent = yearRange.replace('-', ' - ');
+            
+            // 브레드크럼의 활성 연도 업데이트
+            const activeYear = document.querySelector('.breadcrumb .active');
+            activeYear.textContent = yearRange.replace('-', ' - ');
+        }
+    </script>
+</body>
+</html>
