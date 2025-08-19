@@ -1,211 +1,259 @@
-import React, { useEffect, useState } from "react";
-import "../styles/index_kong.css";
-import "../styles/k_people.css";
+import React, { useState } from 'react';
+import '../styles/k_people2.css';
 
-import kong_01_360 from "../assets/images/kong_01_360.png";
-
-import { Link } from "react-router-dom";
-
-const App = () => {
-  // 현재 활성화된 탭을 관리하는 state
-  const [activeTab, setActiveTab] = useState("kong2");
-
-  // 탭 데이터
-  const tabData = {
-    kong1: {
-      title: "공미준1기(2022~2023)",
-      yearDisplay: "2022 - 2023",
-      content: (
-        <div className="content-grid">
-          <div className="content-item">
-            <div className="highlight-text">
-              2022-2023년 주요 성과와 발전사항
-            </div>
-            <div className="content-text">
-              디지털 전환 시대에 맞춰 새로운 도약을 준비하며, 지속가능한 발전을
-              위한 기반을 마련했습니다. 혁신적인 프로젝트들과 파트너십을 통해 더
-              넓은 영향력을 확장해 나가고 있습니다.
-            </div>
-          </div>
-          <div className="content-item">
-            <img
-              src="https://via.placeholder.com/500x300/845ec2/white?text=2022-2023+주요+활동"
-              alt="2022-2023"
-              className="content-image"
-            />
-            <div className="content-text">
-              • 디지털 플랫폼 구축 완료
-              <br />
-              • 국제 협력 프로그램 확대
-              <br />• 지속가능발전목표 달성을 위한 로드맵 수립
-            </div>
-          </div>
-        </div>
-      ),
-    },
-    kong2: {
-      title: "공미준2기(2022~2023)",
-      yearDisplay: "2017 - 2021",
-      content: (
-        <div className="content-grid">
-          <div className="content-item">
-            <img
-              src="https://via.placeholder.com/500x300/00c9a7/white?text=시민운동+활동+현장"
-              alt="시민운동 현장"
-              className="content-image"
-            />
-            <div className="content-text">
-              시민운동과 사회정의를 위한 다양한 활동을 전개하며, 투명하고 공정한
-              사회를 만들기 위해 노력했습니다. 시민들과 함께 목소리를 내며
-              변화를 이끌어냈습니다.
-            </div>
-          </div>
-          <div className="content-item">
-            <img
-              src="https://via.placeholder.com/500x300/845ec2/white?text=추모+기념관+건립"
-              alt="추모 기념관"
-              className="content-image"
-            />
-            <div className="content-text">
-              역사적 의미가 있는 추모 기념관 건립 프로젝트에 참여하여, 과거를
-              기억하고 미래 세대에게 올바른 역사 의식을 전달하는 데
-              기여했습니다.
-            </div>
-          </div>
-        </div>
-      ),
-    },
-  };
-
-  // 탭 클릭 핸들러
-  const handleTabClick = (tabId) => {
-    setActiveTab(tabId);
-  };
-
-  useEffect(() => {
-    // 부드러운 스크롤 효과
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener("click", function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute("href"));
-        if (target) {
-          target.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-        }
-      });
-    });
-
-    // 카드 클릭 효과
-    document.querySelectorAll(".activity-card").forEach((card) => {
-      card.addEventListener("click", function () {
-        this.style.transform = "scale(0.95)";
-        setTimeout(() => {
-          this.style.transform = "";
-        }, 150);
-      });
-    });
-
-    // 스크롤 시 헤더 효과
-    const handleScroll = () => {
-      const header = document.querySelector("header");
-      if (window.scrollY > 100) {
-        header.style.backgroundColor = "rgba(255, 255, 255, 0.95)";
-        header.style.backdropFilter = "blur(10px)";
-      } else {
-        header.style.backgroundColor = "white";
-        header.style.backdropFilter = "none";
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+// 회원 카드 컴포넌트입니다.
+// activeTab props를 추가로 받아 테두리와 별 아이콘 색상을 결정합니다.
+function MemberCard({ member, activeTab, onClick }) {
+  // activeTab 값에 따라 색상 코드 결정
+  const borderColor = activeTab === 'kong1' ? '#f39c12' : '#845ec2';
+  const starColor = activeTab === 'kong1' ? '#f39c12' : '#845ec2';
 
   return (
-    <>
-      <header>
-        <div className="header-container">
-          <Link to="/">
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets/c2aa825bb765483a882a74291aecba2d/53b5cf9fce830460926805336d262b066d42c6f2?placeholderIfAbsent=true"
-              alt="공항교회 로고"
-              className="logo"
-            />
-          </Link>
-          <div className="logo2">공항교회 미래 준비 위원회</div>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/kintro">공미준 소개</Link>
-              </li>
-              <li>
-                <Link to="/kpeople">공미준 위원</Link>
-              </li>
-              <li>
-                <Link to="/kopinion">건의사항</Link>
-              </li>
-            </ul>
-          </nav>
+    <div className="member-card" onClick={onClick}>
+      {member.isStarred && (
+        <div className="star-icon" style={{ backgroundColor: starColor }}>
+          ★
         </div>
-      </header>
+      )}
 
-      <main>
+      {/* member.photoUrl이 있을 때만 img를 렌더링 */}
+      {member.photoUrl ? (
+        <img
+          src={member.photoUrl}
+          alt={member.name}
+          className="member-photo"
+          style={{ borderColor: borderColor }}
+          // 사진 로딩 실패 시, 플레이스홀더를 보여주기 위해
+          // src를 null로 설정하거나, 렌더링 로직을 다시 실행
+          onError={(e) => {
+            e.target.style.display = 'none';
+            e.target.parentNode.querySelector(
+              '.photo-placeholder'
+            ).style.display = 'flex';
+          }}
+        />
+      ) : (
+        // photoUrl이 빈 문자열일 경우, 바로 플레이스홀더 렌더링
+        <div
+          className="photo-placeholder"
+          style={{ borderColor: borderColor, display: 'flex' }}
+        >
+          사진
+        </div>
+      )}
+
+      <div className="member-name">{member.name}</div>
+      <div className="member-role">{member.role}</div>
+      <div
+        className="member-description"
+        dangerouslySetInnerHTML={{ __html: member.description }}
+      ></div>
+    </div>
+  );
+}
+// 메인 App 컴포넌트입니다.
+const membersData = {
+  kong1: [
+    {
+      name: '최종모',
+      role: '위원장',
+      description: '담임목사',
+      photoUrl: '',
+      isStarred: true,
+    },
+    {
+      name: '추연철',
+      role: '부위원장',
+      description: '장로',
+      photoUrl: '',
+      isStarred: true,
+    },
+    {
+      name: '이남창',
+      role: '총무',
+      description: '방송실,4남선교회 회장',
+      photoUrl: '',
+      isStarred: true,
+    },
+    {
+      name: '홍유진 권사',
+      role: '위원',
+      description: '아동부 부장<br />속장',
+      photoUrl: '',
+      isStarred: true,
+    },
+    {
+      name: '유순화',
+      role: '위원',
+      description: '아동부 교사<br/>',
+      photoUrl: '',
+      isStarred: true,
+    },
+    {
+      name: '김화영',
+      role: '위원',
+      description: '아동부 교사',
+      photoUrl: '',
+      isStarred: true,
+    },
+    {
+      name: '장현석',
+      role: '위원',
+      description: '청장년',
+      photoUrl: '',
+      isStarred: true,
+    },
+    {
+      name: '곽창주',
+      role: '위원',
+      description: '청년부 부회장 역임',
+      photoUrl: '',
+      isStarred: true,
+    },
+    {
+      name: '조세형',
+      role: '위원',
+      description: '청년부 부회장<br/>학생부 교사',
+      photoUrl: '',
+      isStarred: true,
+    },
+    {
+      name: '이경림',
+      role: '위원',
+      description: '새가족 대표',
+      photoUrl: '',
+      isStarred: true,
+    },
+  ],
+
+  kong2: [
+    {
+      name: '최종모',
+      role: '위원장',
+      description: '담임목사',
+      photoUrl: '',
+      isStarred: true,
+    },
+    {
+      name: '김민준',
+      role: '부위원장',
+      description: '장로',
+      photoUrl: '',
+      isStarred: true,
+    },
+    {
+      name: '이남창',
+      role: '총무',
+      description: '방송실,4남선교회 회장',
+      photoUrl: '',
+      isStarred: true,
+    },
+    {
+      name: '홍유진 권사',
+      role: '위원',
+      description: '아동부 부장<br />속장',
+      photoUrl: '',
+      isStarred: true,
+    },
+    {
+      name: '유순화',
+      role: '위원',
+      description: '아동부 교사<br/>',
+      photoUrl: '',
+      isStarred: true,
+    },
+    {
+      name: '이재경',
+      role: '위원',
+      // description: '',
+      photoUrl: '',
+      isStarred: true,
+    },
+    {
+      name: '신명화',
+      role: '위원',
+      description: '유치부 부장',
+      photoUrl: '',
+      isStarred: true,
+    },
+    {
+      name: '조세형',
+      role: '위원',
+      description: '청년부 부회장<br/>학생부 교사',
+      photoUrl: '',
+      isStarred: true,
+    },
+    {
+      name: '김진태',
+      role: '위원',
+      description: '금요찬양단',
+      photoUrl: '',
+      isStarred: true,
+    },
+    {
+      name: '이근석',
+      role: '위원',
+      description: '금요찬양단<br/>성가대',
+      photoUrl: '',
+      isStarred: true,
+    },
+  ],
+};
+
+function App() {
+  const [activeTab, setActiveTab] = useState('kong2');
+
+  const handleTabClick = (tabName) => {
+    setActiveTab(tabName);
+  };
+
+  // 클릭 시 실행할 함수를 정의합니다.
+  const handleCardClick = (member) => {
+    alert(
+      `이름: ${member.role}\n직책: ${member.name}\n설명: ${member.description}`
+    );
+    console.log(member);
+  };
+
+  return (
+    <div className="container">
+      <div className="header">
+        <h1 className="title">공미준 위원을 소개합니다</h1>
+        <div className="title-underline"></div>
+      </div>
+
+      <div className="tabs">
+        <button
+          className={`tab ${activeTab === 'kong1' ? 'active' : ''}`}
+          onClick={() => handleTabClick('kong1')}
+        >
+          공미준1기(2022~2023)
+        </button>
+        <button
+          className={`tab ${activeTab === 'kong2' ? 'active' : ''}`}
+          onClick={() => handleTabClick('kong2')}
+        >
+          공미준2기(2022~2023)
+        </button>
+      </div>
+
+      <div className="content active">
         <div className="container">
-          <div className="header">
-            <h1 className="title">공미준을 소개합니다</h1>
-            <div className="breadcrumb">
-              <span>🏠 홈</span>
-              <span>&gt;</span>
-              <span>소개</span>
-              <span>&gt;</span>
-              <span>걸어온길</span>
-              <span>&gt;</span>
-              <span className="active">{tabData[activeTab]?.yearDisplay}</span>
-            </div>
-          </div>
-
-          <div className="tabs">
-            {Object.entries(tabData).map(([tabId, data]) => (
-              <button
-                key={tabId}
-                className={`tab ${activeTab === tabId ? "active" : ""}`}
-                onClick={() => handleTabClick(tabId)}
-              >
-                {data.title}
-              </button>
+          <div className="members-grid">
+            {membersData[activeTab].map((member, index) => (
+              <MemberCard
+                key={index}
+                member={member}
+                activeTab={activeTab} // activeTab 상태를 props로 전달
+                // 이 부분에 onClick 함수를 props로 전달합니다.
+                onClick={() => handleCardClick(member)}
+              />
             ))}
           </div>
-
-          <div className="timeline-indicator">
-            <div className="timeline-dot"></div>
-            <div className="timeline-year" id="current-year">
-              {tabData[activeTab]?.yearDisplay}
-            </div>
-          </div>
-
-          {/* 활성 탭의 콘텐츠만 표시 */}
-          <div className="content active">{tabData[activeTab]?.content}</div>
         </div>
-      </main>
-
-      <footer>
-        <div className="footer-content">
-          <p>
-            (07616) 서울시 강서구 초원로 80 공항교회 TEL. 02)2665-9700~3 FAX.
-            02)2665-2698
-          </p>
-          <p style={{ marginTop: "1rem", opacity: 0.8 }}>
-            © 2025 공항교회 미래준비 위원회. All rights reserved.
-          </p>
-        </div>
-      </footer>
-    </>
+      </div>
+    </div>
   );
-};
+}
 
 export default App;
